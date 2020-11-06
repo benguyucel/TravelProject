@@ -1,0 +1,23 @@
+﻿@model TravelProject.Models.Siniflar.Blog
+@{
+    ViewBag.Title = "YeniBlog";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni Blog</h2>
+<form action="/Admin/YeniBlog" class="form-group" method="post">
+    <br />
+    @Html.LabelFor(x => x.Baslik, "Başlık")
+    @Html.TextBoxFor(x => x.Baslik, htmlAttributes: new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Tarih, "Blog Yazısı Eklenme Tarihi")
+    @Html.TextBoxFor(x => x.Tarih, htmlAttributes: new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.FotoUrl, "Fotoğraf Adresi")
+    @Html.TextBoxFor(x => x.FotoUrl, htmlAttributes: new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Aciklama, "Blog Yazısı")
+    @Html.TextAreaFor(x => x.Aciklama, htmlAttributes: new { @class = "form-control", @style = "height:150px" })
+    <br />
+    <button class="btn btn-primary"  type="submit">Blog Guncelle</button>
+</form>

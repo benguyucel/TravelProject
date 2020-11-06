@@ -1,0 +1,21 @@
+﻿
+@model TravelProject.Models.Siniflar.Yorumlar
+<div class="content-form">
+    <h3>Leave a comment</h3>
+    @{ int BlogId = Convert.ToInt32(ViewBag.deger);}
+<form action="/Blog/YorumYap" method="post">
+    @Html.LabelFor(x => x.KullaniciAdi, "Kullanıcı Adı")
+    @Html.TextBoxFor(x => x.KullaniciAdi)
+
+    @Html.LabelFor(x => x.EMail, "Email")
+    @Html.TextBoxFor(x => x.EMail)
+
+    @Html.HiddenFor(x => x.BlogId, htmlAttributes: new { @Value = @BlogId })
+
+    @Html.LabelFor(x => x.Yorum, "Yorum")
+    @Html.TextAreaFor(x => x.Yorum)
+
+    <input type="submit" value="SEND" />
+</form>
+  
+</div>

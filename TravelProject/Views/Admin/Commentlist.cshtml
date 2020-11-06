@@ -1,0 +1,52 @@
+﻿@model IEnumerable<TravelProject.Models.Siniflar.Yorumlar>
+
+@{
+    ViewBag.Title = "Commentlist";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Commentlist</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Blog Başlığı
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KullaniciAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Yorum)
+        </th>
+        <th>Düzenleme İşlemi</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Blog.Baslik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KullaniciAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => (item.Yorum)).ToString().Substring(0,50) 
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "YorumEdit", new { id=item.ID }) |
+            @Html.ActionLink("Yoruma Git", "../Blog/BlogDetay/", new { id=item.BlogId }) |
+            @Html.ActionLink("Delete", "YorumSil", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

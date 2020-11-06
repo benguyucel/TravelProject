@@ -1,0 +1,14 @@
+﻿@using TravelProject.Models.Siniflar
+@model List<Blog>
+<div class="recent">
+    <h3>Son Bloglar</h3>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li><a href="/Blog/BlogDetay/@item.ID">@item.Baslik</a></li>
+
+
+        }
+
+    </ul>
+</div>

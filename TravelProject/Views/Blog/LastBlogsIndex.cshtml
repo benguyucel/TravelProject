@@ -1,0 +1,25 @@
+﻿@using TravelProject.Models.Siniflar
+@model List<Blog>
+<ul class="list list-pad">
+    @{
+        int a = 0;
+        string ssk = "list-bg";
+        }
+    @foreach (var item in Model)
+    {
+        a++;
+        if (a%2==0)
+        {
+            ssk = "list-bg1";
+        }
+        else
+        {
+            ssk = "list-bg";
+        }
+
+
+        <li class="@ssk"><span>@a</span><a href="/Blog/BlogDetay/@item.ID">@item.Baslik</a></li>
+
+    }
+
+</ul>
